@@ -15,6 +15,8 @@
 		7D32034E1CBFFEF900B3E391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D32034C1CBFFEF900B3E391 /* LaunchScreen.storyboard */; };
 		7D3203591CBFFEF900B3E391 /* PicBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203581CBFFEF900B3E391 /* PicBoxTests.m */; };
 		7D3203641CBFFEF900B3E391 /* PicBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203631CBFFEF900B3E391 /* PicBoxUITests.m */; };
+		7D3203741CC0182000B3E391 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203731CC0182000B3E391 /* Constants.m */; };
+		A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22D454A04C30E23FA7E6C71F /* Pods-PicBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.debug.xcconfig"; sourceTree = "<group>"; };
 		7D32033B1CBFFEF900B3E391 /* PicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32033F1CBFFEF900B3E391 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D3203411CBFFEF900B3E391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +54,10 @@
 		7D32035F1CBFFEF900B3E391 /* PicBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3203631CBFFEF900B3E391 /* PicBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicBoxUITests.m; sourceTree = "<group>"; };
 		7D3203651CBFFEF900B3E391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D3203721CC0182000B3E391 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		7D3203731CC0182000B3E391 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34A303F66B23AAE0B5934627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D3203321CBFFEF900B3E391 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +101,8 @@
 				7D3203571CBFFEF900B3E391 /* PicBoxTests */,
 				7D3203621CBFFEF900B3E391 /* PicBoxUITests */,
 				7D32033C1CBFFEF900B3E391 /* Products */,
+				97AD4954881661A56D878F54 /* Pods */,
+				34A303F66B23AAE0B5934627 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +119,7 @@
 		7D32033D1CBFFEF900B3E391 /* PicBox */ = {
 			isa = PBXGroup;
 			children = (
+				7D3203711CC017F400B3E391 /* Extras */,
 				7D3203411CBFFEF900B3E391 /* AppDelegate.h */,
 				7D3203421CBFFEF900B3E391 /* AppDelegate.m */,
 				7D3203441CBFFEF900B3E391 /* ViewController.h */,
@@ -140,6 +159,24 @@
 			path = PicBoxUITests;
 			sourceTree = "<group>";
 		};
+		7D3203711CC017F400B3E391 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				7D3203721CC0182000B3E391 /* Constants.h */,
+				7D3203731CC0182000B3E391 /* Constants.m */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		97AD4954881661A56D878F54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22D454A04C30E23FA7E6C71F /* Pods-PicBox.debug.xcconfig */,
+				F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D3203681CBFFEF900B3E391 /* Build configuration list for PBXNativeTarget "PicBox" */;
 			buildPhases = (
+				A5143FAA48D73C8240D066D8 /* 📦 Check Pods Manifest.lock */,
 				7D3203371CBFFEF900B3E391 /* Sources */,
 				7D3203381CBFFEF900B3E391 /* Frameworks */,
 				7D3203391CBFFEF900B3E391 /* Resources */,
+				349E84A4C756A87C2AC8DC16 /* 📦 Embed Pods Frameworks */,
+				7EE716AAF32454DE589B0410 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +305,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		349E84A4C756A87C2AC8DC16 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicBox/Pods-PicBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EE716AAF32454DE589B0410 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicBox/Pods-PicBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5143FAA48D73C8240D066D8 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D3203371CBFFEF900B3E391 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +361,7 @@
 				7D3203461CBFFEF900B3E391 /* ViewController.m in Sources */,
 				7D3203431CBFFEF900B3E391 /* AppDelegate.m in Sources */,
 				7D3203401CBFFEF900B3E391 /* main.m in Sources */,
+				7D3203741CC0182000B3E391 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +500,7 @@
 		};
 		7D3203691CBFFEF900B3E391 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22D454A04C30E23FA7E6C71F /* Pods-PicBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicBox/Info.plist;
@@ -422,6 +512,7 @@
 		};
 		7D32036A1CBFFEF900B3E391 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicBox/Info.plist;
@@ -496,6 +587,7 @@
 				7D32036A1CBFFEF900B3E391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D32036B1CBFFEF900B3E391 /* Build configuration list for PBXNativeTarget "PicBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +596,7 @@
 				7D32036D1CBFFEF900B3E391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D32036E1CBFFEF900B3E391 /* Build configuration list for PBXNativeTarget "PicBoxUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +605,7 @@
 				7D3203701CBFFEF900B3E391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

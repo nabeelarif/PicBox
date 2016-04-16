@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "AppTheme.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [IMGSession anonymousSessionWithClientID:kImgurClientId withDelegate:self];
+    [AppTheme applyTheme];
     return YES;
 }
 

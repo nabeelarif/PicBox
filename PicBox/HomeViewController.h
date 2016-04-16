@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PicBoxImageBrowser.h"
 
-@interface HomeViewController : UICollectionViewController
-
+@class IMGAlbum;
+@interface HomeViewController : UICollectionViewController <PicBoxImageBrowserDelegate>
+@property (strong, nonatomic) IMGAlbum *currentAlbum;
 
 @end
 

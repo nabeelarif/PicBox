@@ -16,7 +16,6 @@
 		7D3203591CBFFEF900B3E391 /* PicBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203581CBFFEF900B3E391 /* PicBoxTests.m */; };
 		7D3203641CBFFEF900B3E391 /* PicBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203631CBFFEF900B3E391 /* PicBoxUITests.m */; };
 		7D3203741CC0182000B3E391 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203731CC0182000B3E391 /* Constants.m */; };
-		7D3B8C6E1CC179EB007EA5C5 /* PicBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C6C1CC179EB007EA5C5 /* PicBox.xcdatamodeld */; };
 		7D3B8C771CC249F0007EA5C5 /* AppTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C721CC249F0007EA5C5 /* AppTheme.m */; };
 		7D3B8C781CC249F0007EA5C5 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C741CC249F0007EA5C5 /* UIColor+Theme.m */; };
 		7D3B8C791CC249F0007EA5C5 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C761CC249F0007EA5C5 /* UIFont+Theme.m */; };
@@ -24,6 +23,17 @@
 		7D3B8C7F1CC24A31007EA5C5 /* BottomRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8C7D1CC24A31007EA5C5 /* BottomRefreshControl.xib */; };
 		7D3B8C861CC28588007EA5C5 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C851CC28588007EA5C5 /* SettingsTableViewController.m */; };
 		7D3B8C891CC28598007EA5C5 /* AboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C881CC28598007EA5C5 /* AboutTableViewController.m */; };
+		7D3B8C8C1CC2C98E007EA5C5 /* gallery_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8C8B1CC2C98E007EA5C5 /* gallery_icon.png */; };
+		7D3B8C901CC2D308007EA5C5 /* PicBoxCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C8F1CC2D308007EA5C5 /* PicBoxCaptionView.m */; };
+		7D3B8C931CC2D369007EA5C5 /* PicBoxImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C921CC2D369007EA5C5 /* PicBoxImage.m */; };
+		7D3B8C961CC2D394007EA5C5 /* PicBoxImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C951CC2D394007EA5C5 /* PicBoxImageBrowser.m */; };
+		7D3B8C9A1CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C991CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m */; };
+		7D3B8C9D1CC2D446007EA5C5 /* PicBoxTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C9C1CC2D446007EA5C5 /* PicBoxTapDetectingView.m */; };
+		7D3B8CA01CC2D822007EA5C5 /* PicBoxZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C9F1CC2D822007EA5C5 /* PicBoxZoomingScrollView.m */; };
+		7D3B8CA51CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA11CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png */; };
+		7D3B8CA61CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */; };
+		7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */; };
+		7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */; };
 		A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +74,6 @@
 		7D3203651CBFFEF900B3E391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D3203721CC0182000B3E391 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7D3203731CC0182000B3E391 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		7D3B8C6D1CC179EB007EA5C5 /* PicBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PicBox.xcdatamodel; sourceTree = "<group>"; };
 		7D3B8C711CC249F0007EA5C5 /* AppTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTheme.h; sourceTree = "<group>"; };
 		7D3B8C721CC249F0007EA5C5 /* AppTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTheme.m; sourceTree = "<group>"; };
 		7D3B8C731CC249F0007EA5C5 /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Theme.h"; sourceTree = "<group>"; };
@@ -78,6 +87,24 @@
 		7D3B8C851CC28588007EA5C5 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		7D3B8C871CC28598007EA5C5 /* AboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutTableViewController.h; sourceTree = "<group>"; };
 		7D3B8C881CC28598007EA5C5 /* AboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutTableViewController.m; sourceTree = "<group>"; };
+		7D3B8C8B1CC2C98E007EA5C5 /* gallery_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery_icon.png; sourceTree = "<group>"; };
+		7D3B8C8E1CC2D308007EA5C5 /* PicBoxCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PicBoxCaptionView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7D3B8C8F1CC2D308007EA5C5 /* PicBoxCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBoxCaptionView.m; sourceTree = "<group>"; };
+		7D3B8C911CC2D369007EA5C5 /* PicBoxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PicBoxImage.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7D3B8C921CC2D369007EA5C5 /* PicBoxImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PicBoxImage.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7D3B8C941CC2D394007EA5C5 /* PicBoxImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PicBoxImageBrowser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7D3B8C951CC2D394007EA5C5 /* PicBoxImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBoxImageBrowser.m; sourceTree = "<group>"; };
+		7D3B8C971CC2D3F2007EA5C5 /* PicBoxImageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PicBoxImageProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		7D3B8C981CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicBoxTapDetectingImageView.h; sourceTree = "<group>"; };
+		7D3B8C991CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBoxTapDetectingImageView.m; sourceTree = "<group>"; };
+		7D3B8C9B1CC2D446007EA5C5 /* PicBoxTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicBoxTapDetectingView.h; sourceTree = "<group>"; };
+		7D3B8C9C1CC2D446007EA5C5 /* PicBoxTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBoxTapDetectingView.m; sourceTree = "<group>"; };
+		7D3B8C9E1CC2D822007EA5C5 /* PicBoxZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicBoxZoomingScrollView.h; sourceTree = "<group>"; };
+		7D3B8C9F1CC2D822007EA5C5 /* PicBoxZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBoxZoomingScrollView.m; sourceTree = "<group>"; };
+		7D3B8CA11CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PicBoxImageBrowser_arrowLeft.png; sourceTree = "<group>"; };
+		7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PicBoxImageBrowser_arrowLeft@2x.png"; sourceTree = "<group>"; };
+		7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PicBoxImageBrowser_arrowRight.png; sourceTree = "<group>"; };
+		7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PicBoxImageBrowser_arrowRight@2x.png"; sourceTree = "<group>"; };
 		B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,7 +168,8 @@
 		7D32033D1CBFFEF900B3E391 /* PicBox */ = {
 			isa = PBXGroup;
 			children = (
-				7D3B8C6B1CC179CB007EA5C5 /* CoreData */,
+				7D3B8C8D1CC2D124007EA5C5 /* ImageBrowser */,
+				7D3B8C8A1CC2C97E007EA5C5 /* Images */,
 				7D3203711CC017F400B3E391 /* Extras */,
 				7D3B8C701CC249F0007EA5C5 /* Theme */,
 				7D3B8C7A1CC24A31007EA5C5 /* BottomRefreshControl */,
@@ -192,22 +220,6 @@
 			path = Extras;
 			sourceTree = "<group>";
 		};
-		7D3B8C6B1CC179CB007EA5C5 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				7D3B8C6C1CC179EB007EA5C5 /* PicBox.xcdatamodeld */,
-				7D3B8C6F1CC17D2B007EA5C5 /* Model */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		7D3B8C6F1CC17D2B007EA5C5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		7D3B8C701CC249F0007EA5C5 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +254,38 @@
 				7D3B8C881CC28598007EA5C5 /* AboutTableViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7D3B8C8A1CC2C97E007EA5C5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7D3B8C8B1CC2C98E007EA5C5 /* gallery_icon.png */,
+				7D3B8CA11CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png */,
+				7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */,
+				7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */,
+				7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		7D3B8C8D1CC2D124007EA5C5 /* ImageBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				7D3B8C8E1CC2D308007EA5C5 /* PicBoxCaptionView.h */,
+				7D3B8C8F1CC2D308007EA5C5 /* PicBoxCaptionView.m */,
+				7D3B8C911CC2D369007EA5C5 /* PicBoxImage.h */,
+				7D3B8C921CC2D369007EA5C5 /* PicBoxImage.m */,
+				7D3B8C941CC2D394007EA5C5 /* PicBoxImageBrowser.h */,
+				7D3B8C951CC2D394007EA5C5 /* PicBoxImageBrowser.m */,
+				7D3B8C971CC2D3F2007EA5C5 /* PicBoxImageProtocol.h */,
+				7D3B8C981CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.h */,
+				7D3B8C991CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m */,
+				7D3B8C9B1CC2D446007EA5C5 /* PicBoxTapDetectingView.h */,
+				7D3B8C9C1CC2D446007EA5C5 /* PicBoxTapDetectingView.m */,
+				7D3B8C9E1CC2D822007EA5C5 /* PicBoxZoomingScrollView.h */,
+				7D3B8C9F1CC2D822007EA5C5 /* PicBoxZoomingScrollView.m */,
+			);
+			path = ImageBrowser;
 			sourceTree = "<group>";
 		};
 		97AD4954881661A56D878F54 /* Pods */ = {
@@ -360,10 +404,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D3B8CA61CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png in Resources */,
+				7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */,
 				7D32034E1CBFFEF900B3E391 /* LaunchScreen.storyboard in Resources */,
 				7D32034B1CBFFEF900B3E391 /* Assets.xcassets in Resources */,
+				7D3B8C8C1CC2C98E007EA5C5 /* gallery_icon.png in Resources */,
 				7D3B8C7F1CC24A31007EA5C5 /* BottomRefreshControl.xib in Resources */,
+				7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */,
 				7D3203491CBFFEF900B3E391 /* Main.storyboard in Resources */,
+				7D3B8CA51CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,15 +487,20 @@
 			files = (
 				7D3203461CBFFEF900B3E391 /* HomeViewController.m in Sources */,
 				7D3B8C781CC249F0007EA5C5 /* UIColor+Theme.m in Sources */,
+				7D3B8C961CC2D394007EA5C5 /* PicBoxImageBrowser.m in Sources */,
 				7D3B8C861CC28588007EA5C5 /* SettingsTableViewController.m in Sources */,
 				7D3203431CBFFEF900B3E391 /* AppDelegate.m in Sources */,
+				7D3B8C931CC2D369007EA5C5 /* PicBoxImage.m in Sources */,
+				7D3B8CA01CC2D822007EA5C5 /* PicBoxZoomingScrollView.m in Sources */,
 				7D3B8C891CC28598007EA5C5 /* AboutTableViewController.m in Sources */,
 				7D3203401CBFFEF900B3E391 /* main.m in Sources */,
+				7D3B8C9D1CC2D446007EA5C5 /* PicBoxTapDetectingView.m in Sources */,
 				7D3B8C791CC249F0007EA5C5 /* UIFont+Theme.m in Sources */,
 				7D3B8C771CC249F0007EA5C5 /* AppTheme.m in Sources */,
+				7D3B8C901CC2D308007EA5C5 /* PicBoxCaptionView.m in Sources */,
+				7D3B8C9A1CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m in Sources */,
 				7D3B8C7E1CC24A31007EA5C5 /* BottomRefreshControl.m in Sources */,
 				7D3203741CC0182000B3E391 /* Constants.m in Sources */,
-				7D3B8C6E1CC179EB007EA5C5 /* PicBox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,19 +751,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7D3B8C6C1CC179EB007EA5C5 /* PicBox.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7D3B8C6D1CC179EB007EA5C5 /* PicBox.xcdatamodel */,
-			);
-			currentVersion = 7D3B8C6D1CC179EB007EA5C5 /* PicBox.xcdatamodel */;
-			path = PicBox.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7D3203331CBFFEF900B3E391 /* Project object */;
 }

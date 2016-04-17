@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Theme.h"
 #import "UIFont+Theme.h"
-#import "BottomRefreshControl.h"
 
 @implementation AppTheme
 + (void)applyTheme
@@ -40,9 +39,6 @@
     
     // Set progress tint color
     [[UIActivityIndicatorView appearance] setColor:[UIColor appColorWithLightness:0.1]];
-    
-    // BottomRefreshcontrol
-    [[BottomRefreshControl appearance] setBackgroundColor:[UIColor appColorWithLightness:0.9]];
     
     //UISearchBar
     [[UISearchBar appearance] setTintColor:[UIColor appColorWithLightness:0.2]];

@@ -25,8 +25,6 @@
 		7D3B8C771CC249F0007EA5C5 /* AppTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C721CC249F0007EA5C5 /* AppTheme.m */; };
 		7D3B8C781CC249F0007EA5C5 /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C741CC249F0007EA5C5 /* UIColor+Theme.m */; };
 		7D3B8C791CC249F0007EA5C5 /* UIFont+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C761CC249F0007EA5C5 /* UIFont+Theme.m */; };
-		7D3B8C7E1CC24A31007EA5C5 /* BottomRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C7C1CC24A31007EA5C5 /* BottomRefreshControl.m */; };
-		7D3B8C7F1CC24A31007EA5C5 /* BottomRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8C7D1CC24A31007EA5C5 /* BottomRefreshControl.xib */; };
 		7D3B8C861CC28588007EA5C5 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C851CC28588007EA5C5 /* SettingsTableViewController.m */; };
 		7D3B8C891CC28598007EA5C5 /* AboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B8C881CC28598007EA5C5 /* AboutTableViewController.m */; };
 		7D3B8C8C1CC2C98E007EA5C5 /* gallery_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8C8B1CC2C98E007EA5C5 /* gallery_icon.png */; };
@@ -92,9 +90,6 @@
 		7D3B8C741CC249F0007EA5C5 /* UIColor+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Theme.m"; sourceTree = "<group>"; };
 		7D3B8C751CC249F0007EA5C5 /* UIFont+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Theme.h"; sourceTree = "<group>"; };
 		7D3B8C761CC249F0007EA5C5 /* UIFont+Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Theme.m"; sourceTree = "<group>"; };
-		7D3B8C7B1CC24A31007EA5C5 /* BottomRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomRefreshControl.h; sourceTree = "<group>"; };
-		7D3B8C7C1CC24A31007EA5C5 /* BottomRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomRefreshControl.m; sourceTree = "<group>"; };
-		7D3B8C7D1CC24A31007EA5C5 /* BottomRefreshControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomRefreshControl.xib; sourceTree = "<group>"; };
 		7D3B8C841CC28588007EA5C5 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		7D3B8C851CC28588007EA5C5 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		7D3B8C871CC28598007EA5C5 /* AboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutTableViewController.h; sourceTree = "<group>"; };
@@ -184,7 +179,6 @@
 				7D3B8C8A1CC2C97E007EA5C5 /* Images */,
 				7D3203711CC017F400B3E391 /* Extras */,
 				7D3B8C701CC249F0007EA5C5 /* Theme */,
-				7D3B8C7A1CC24A31007EA5C5 /* BottomRefreshControl */,
 				7D3B8C801CC24A7A007EA5C5 /* Controllers */,
 				7D3203411CBFFEF900B3E391 /* AppDelegate.h */,
 				7D3203421CBFFEF900B3E391 /* AppDelegate.m */,
@@ -243,16 +237,6 @@
 				7D3B8C761CC249F0007EA5C5 /* UIFont+Theme.m */,
 			);
 			path = Theme;
-			sourceTree = "<group>";
-		};
-		7D3B8C7A1CC24A31007EA5C5 /* BottomRefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				7D3B8C7B1CC24A31007EA5C5 /* BottomRefreshControl.h */,
-				7D3B8C7C1CC24A31007EA5C5 /* BottomRefreshControl.m */,
-				7D3B8C7D1CC24A31007EA5C5 /* BottomRefreshControl.xib */,
-			);
-			path = BottomRefreshControl;
 			sourceTree = "<group>";
 		};
 		7D3B8C801CC24A7A007EA5C5 /* Controllers */ = {
@@ -432,7 +416,6 @@
 				7D003DF71CC4001F0028E7BA /* about-icon@2x.png in Resources */,
 				7D32034B1CBFFEF900B3E391 /* Assets.xcassets in Resources */,
 				7D3B8C8C1CC2C98E007EA5C5 /* gallery_icon.png in Resources */,
-				7D3B8C7F1CC24A31007EA5C5 /* BottomRefreshControl.xib in Resources */,
 				7D003DF81CC4001F0028E7BA /* about-icon@3x.png in Resources */,
 				7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */,
 				7D3203491CBFFEF900B3E391 /* Main.storyboard in Resources */,
@@ -523,7 +506,6 @@
 				7D3B8C771CC249F0007EA5C5 /* AppTheme.m in Sources */,
 				7D3B8C901CC2D308007EA5C5 /* PicBoxCaptionView.m in Sources */,
 				7D3B8C9A1CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m in Sources */,
-				7D3B8C7E1CC24A31007EA5C5 /* BottomRefreshControl.m in Sources */,
 				7D3203741CC0182000B3E391 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

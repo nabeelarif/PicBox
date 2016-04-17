@@ -15,6 +15,8 @@
 		7D003DFB1CC4001F0028E7BA /* settings-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF51CC4001F0028E7BA /* settings-icon@3x.png */; };
 		7D003DFD1CC419F10028E7BA /* bio-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DFC1CC419F10028E7BA /* bio-photo.jpg */; };
 		7D003E001CC41BC90028E7BA /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D003DFF1CC41BC90028E7BA /* Utility.m */; };
+		7D003E051CC4341F0028E7BA /* SettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D003E041CC4341F0028E7BA /* SettingsModel.m */; };
+		7D003E081CC434520028E7BA /* UserDefaultBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D003E071CC434520028E7BA /* UserDefaultBaseModel.m */; };
 		7D3203401CBFFEF900B3E391 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D32033F1CBFFEF900B3E391 /* main.m */; };
 		7D3203431CBFFEF900B3E391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203421CBFFEF900B3E391 /* AppDelegate.m */; };
 		7D3203461CBFFEF900B3E391 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203451CBFFEF900B3E391 /* HomeViewController.m */; };
@@ -71,6 +73,10 @@
 		7D003DFC1CC419F10028E7BA /* bio-photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bio-photo.jpg"; sourceTree = "<group>"; };
 		7D003DFE1CC41BC90028E7BA /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		7D003DFF1CC41BC90028E7BA /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		7D003E031CC4341F0028E7BA /* SettingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsModel.h; sourceTree = "<group>"; };
+		7D003E041CC4341F0028E7BA /* SettingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsModel.m; sourceTree = "<group>"; };
+		7D003E061CC434520028E7BA /* UserDefaultBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultBaseModel.h; sourceTree = "<group>"; };
+		7D003E071CC434520028E7BA /* UserDefaultBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultBaseModel.m; sourceTree = "<group>"; };
 		7D32033B1CBFFEF900B3E391 /* PicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32033F1CBFFEF900B3E391 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D3203411CBFFEF900B3E391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +161,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D003E021CC434080028E7BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D003E031CC4341F0028E7BA /* SettingsModel.h */,
+				7D003E041CC4341F0028E7BA /* SettingsModel.m */,
+				7D003E061CC434520028E7BA /* UserDefaultBaseModel.h */,
+				7D003E071CC434520028E7BA /* UserDefaultBaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7D3203321CBFFEF900B3E391 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +197,7 @@
 		7D32033D1CBFFEF900B3E391 /* PicBox */ = {
 			isa = PBXGroup;
 			children = (
+				7D003E021CC434080028E7BA /* Model */,
 				7D3B8C8D1CC2D124007EA5C5 /* ImageBrowser */,
 				7D3B8C8A1CC2C97E007EA5C5 /* Images */,
 				7D3203711CC017F400B3E391 /* Extras */,
@@ -517,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D3203461CBFFEF900B3E391 /* HomeViewController.m in Sources */,
+				7D003E051CC4341F0028E7BA /* SettingsModel.m in Sources */,
 				7D3B8C781CC249F0007EA5C5 /* UIColor+Theme.m in Sources */,
 				7D3B8C961CC2D394007EA5C5 /* PicBoxImageBrowser.m in Sources */,
 				7D3B8C861CC28588007EA5C5 /* SettingsTableViewController.m in Sources */,
@@ -532,6 +551,7 @@
 				7D3B8C901CC2D308007EA5C5 /* PicBoxCaptionView.m in Sources */,
 				7D3B8C9A1CC2D41C007EA5C5 /* PicBoxTapDetectingImageView.m in Sources */,
 				7D3203741CC0182000B3E391 /* Constants.m in Sources */,
+				7D003E081CC434520028E7BA /* UserDefaultBaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

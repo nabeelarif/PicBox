@@ -17,21 +17,11 @@
     [self applyThemeToTableCells];
     [self applyThemeToStatusBar];
     [self applyThemeToNavigationBar];
+    [self applyThemeToControls];
 }
 
 + (void)applyThemeToTableCells
 {
-    //Applay theme to UITableView
-//    [[UITableView appearance] setBackgroundColor:[UIColor appColorWithLightness:0.95]];
-    
-    // Apply effects to general label
-    [[UILabel appearanceWhenContainedIn:UITableViewCell.class, nil]
-     setFont:UIFont.labelFont];
-    [[UILabel appearanceWhenContainedIn:UITableViewCell.class, nil]
-     setTextColor:UIColor.labelColor];
-//    [[UITableViewCell appearance]
-//     setBackgroundColor:[UIColor appColorWithLightness:0.95]];
-    
     //Selected background Appearance
     UIView *selectionView = [UIView new];
     selectionView.backgroundColor = [UIColor appColorWithLightness:0.95];
@@ -49,7 +39,11 @@
 {
 //    [UIStatusBar appearance]
 }
-
++ (void)applyThemeToControls{
+    [[UISegmentedControl appearance] setTintColor:[UIColor appColorWithLightness:0.4]];
+    [[UISwitch appearance] setTintColor:[UIColor appColorWithLightness:0.3]];
+    [[UISwitch appearance] setOnTintColor:[UIColor appColorWithLightness:0.4]];
+}
 + (void)applyThemeToNavigationBar
 {
     [[UINavigationBar appearance] setBackgroundColor:[UIColor appColorWithLightness:0.5]];

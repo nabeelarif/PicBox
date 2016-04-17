@@ -7,8 +7,12 @@
 //
 
 #import "AboutTableViewController.h"
+#import "Utility.h"
 
 @interface AboutTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *lblVersionNo;
+@property (weak, nonatomic) IBOutlet UILabel *lblBuildDate;
+@property (weak, nonatomic) IBOutlet UIImageView *ivProfilePic;
 
 @end
 
@@ -16,12 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.lblVersionNo.text = [Utility versionBuild];
+    self.lblBuildDate.text = [Utility buildDate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,17 +29,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
+//#pragma mark - Table view data source
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

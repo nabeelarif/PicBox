@@ -23,10 +23,16 @@
 
 @end
 
-@interface HomeViewController () <UICollectionViewDelegateFlowLayout>
+@interface HomeViewController () <UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
 @property (nonatomic,strong) NSMutableArray<PicBoxImage*> *arrayImages;
 @property (nonatomic) BOOL isRequestInProgress;
 @property (nonatomic) NSInteger pageNumber;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barBtnAbout;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barBtnSearch;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barBtnSettings;
+- (IBAction)actionSearch:(id)sender;
+@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic,strong) NSString *strSearch;
 @end
 
 @implementation HomeViewController
@@ -42,16 +48,29 @@
     }else{
         [self reload];
     }
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    self.searchBar = [[UISearchBar alloc] init];
+    _searchBar.showsCancelButton = YES;
+    _searchBar.delegate = self;
+    _searchBar.text = nil;
+    _searchBar.placeholder = @"Search Gallery ...";
+    
+    //Add bottom refresh control
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     refreshControl.triggerVerticalOffset = 100.;
     [refreshControl addTarget:self action:@selector(loadMoreData) forControlEvents:UIControlEventValueChanged];
     self.collectionView.bottomRefreshControl = refreshControl;
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc{
+    _barBtnSettings = nil;
+    _barBtnAbout = nil;
+    _barBtnSearch = nil;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -224,5 +243,64 @@
 #pragma mark - 
 - (IBAction)unwindToHome:(UIStoryboardSegue*)sender
 {
+}
+
+#pragma mark Search
+
+- (IBAction)actionSearch:(id)sender {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        ((UIView*)[_barBtnSearch valueForKey:@"view"]).alpha = 0.0f;
+        ((UIView*)[_barBtnAbout valueForKey:@"view"]).alpha = 0.0;
+        ((UIView*)[_barBtnSettings valueForKey:@"view"]).alpha = 0.0;
+        
+    } completion:^(BOOL finished) {
+        
+        // remove the search button
+        self.navigationItem.rightBarButtonItems = nil;
+        self.navigationItem.leftBarButtonItem = nil;
+        // add the search bar (which will start out hidden).
+        self.navigationItem.titleView = _searchBar;
+        _searchBar.alpha = 0.0;
+        
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             _searchBar.alpha = 1.0;
+                         } completion:^(BOOL finished) {
+                             [_searchBar becomeFirstResponder];
+                         }];
+        
+    }];
+}
+#pragma mark UISearchBarDelegate methods
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        _searchBar.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        self.navigationItem.titleView = nil;
+        self.navigationItem.rightBarButtonItems = @[_barBtnAbout, _barBtnSearch];
+        self.navigationItem.leftBarButtonItem = _barBtnSettings;
+        ((UIView*)[_barBtnSearch valueForKey:@"view"]).alpha = 0.0f;
+        ((UIView*)[_barBtnAbout valueForKey:@"view"]).alpha = 0.0;
+        ((UIView*)[_barBtnSettings valueForKey:@"view"]).alpha = 0.0;  // set this *after* adding it back
+        [UIView animateWithDuration:0.5f animations:^ {
+            ((UIView*)[_barBtnSearch valueForKey:@"view"]).alpha = 1.0f;
+            ((UIView*)[_barBtnAbout valueForKey:@"view"]).alpha = 1.0;
+            ((UIView*)[_barBtnSettings valueForKey:@"view"]).alpha = 1.0;
+        }];
+    }];
+    
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"search");
+    
+    if (searchBar.text.length>0 && [self.strSearch isEqualToString:_searchBar.text]==NO) {
+        self.strSearch = searchBar.text;
+        self.title = self.strSearch;
+        [self searchBarCancelButtonClicked:_searchBar];
+        //Search data for new string
+    }
 }
 @end

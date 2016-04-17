@@ -51,6 +51,9 @@ caption = _caption;
 + (PicBoxImage *)photoWithURL:(NSURL *)url {
     return [[PicBoxImage alloc] initWithURL:url];
 }
++ (PicBoxImage *)photoWithIMGObject:(id<IMGObjectProtocol>)obj{
+    return [[PicBoxImage alloc] initWithIMGObject:obj];
+}
 
 + (NSArray *)photosWithImages:(NSArray *)imagesArray {
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity:imagesArray.count];
@@ -94,7 +97,18 @@ caption = _caption;
     
     return photos;
 }
-
++ (NSArray *)photosWithIMGObjects:(NSArray<IMGObjectProtocol> *)objs {
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:objs.count];
+    
+    for (id<IMGObjectProtocol> obj in objs) {
+        if ([obj conformsToProtocol:@protocol(IMGObjectProtocol)]) {
+            PicBoxImage *photo = [PicBoxImage photoWithIMGObject:obj];
+            [photos addObject:photo];
+        }
+    }
+    
+    return photos;
+}
 #pragma mark NSObject
 
 - (id)initWithImage:(UIImage *)image {
@@ -113,11 +127,53 @@ caption = _caption;
 
 - (id)initWithURL:(NSURL *)url {
     if ((self = [super init])) {
-        _photoURL = [url copy];
+        self.photoURL = [url copy];
     }
     return self;
 }
 
+- (instancetype)initWithIMGObject:(id<IMGObjectProtocol>)obj{
+    
+    if ((self = [super init])) {
+        _imgObject = obj;
+    }
+    return self;
+}
+#pragma mark - Instance Methods
+-(NSString *)caption{
+    if (_imgObject) {
+        IMGImage *image;
+        if ([_imgObject isAlbum]) {
+            image = [_imgObject coverImage];
+            IMGAlbum *album = (IMGAlbum *)_imgObject;
+            if (album.title) {
+                return album.title;
+            }else if (album.albumDescription){
+                return album.albumDescription;
+            }
+        }else{
+            image = (IMGImage*)_imgObject;
+            if (image.title) {
+                return image.title;
+            }else if (image.imageDescription){
+                return image.imageDescription;
+            }
+        }
+    }
+    return _caption;
+}
+-(NSURL *)photoURL{
+    if (_imgObject) {
+        IMGImage *image;
+        if ([_imgObject isAlbum]) {
+            image = [_imgObject coverImage];
+        }else{
+            image = (IMGImage*)_imgObject;
+        }
+        return image.url;
+    }
+    return _photoURL;
+}
 #pragma mark PicBoxImage Protocol Methods
 
 - (UIImage *)underlyingImage {
@@ -134,10 +190,10 @@ caption = _caption;
         if (_photoPath) {
             // Load async from file
             [self performSelectorInBackground:@selector(loadImageFromFileAsync) withObject:nil];
-        } else if (_photoURL) {
+        } else if (self.photoURL) {
             // Load async from web (using SDWebImageManager)
             SDWebImageManager *manager = [SDWebImageManager sharedManager];
-            [manager downloadImageWithURL:_photoURL options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            [manager downloadImageWithURL:self.photoURL options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 CGFloat progress = ((CGFloat)receivedSize)/((CGFloat)expectedSize);
                 if (self.progressUpdateBlock) {
                     self.progressUpdateBlock(progress);
@@ -161,7 +217,7 @@ caption = _caption;
 - (void)unloadUnderlyingImage {
     _loadingInProgress = NO;
     
-    if (self.underlyingImage && (_photoPath || _photoURL)) {
+    if (self.underlyingImage && (_photoPath || self.photoURL)) {
         self.underlyingImage = nil;
     }
 }

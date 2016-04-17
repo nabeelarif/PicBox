@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D003DF61CC4001F0028E7BA /* about-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF01CC4001F0028E7BA /* about-icon.png */; };
+		7D003DF71CC4001F0028E7BA /* about-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF11CC4001F0028E7BA /* about-icon@2x.png */; };
+		7D003DF81CC4001F0028E7BA /* about-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF21CC4001F0028E7BA /* about-icon@3x.png */; };
+		7D003DF91CC4001F0028E7BA /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF31CC4001F0028E7BA /* settings-icon.png */; };
+		7D003DFA1CC4001F0028E7BA /* settings-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF41CC4001F0028E7BA /* settings-icon@2x.png */; };
+		7D003DFB1CC4001F0028E7BA /* settings-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D003DF51CC4001F0028E7BA /* settings-icon@3x.png */; };
 		7D3203401CBFFEF900B3E391 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D32033F1CBFFEF900B3E391 /* main.m */; };
 		7D3203431CBFFEF900B3E391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203421CBFFEF900B3E391 /* AppDelegate.m */; };
 		7D3203461CBFFEF900B3E391 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203451CBFFEF900B3E391 /* HomeViewController.m */; };
@@ -56,6 +62,12 @@
 
 /* Begin PBXFileReference section */
 		22D454A04C30E23FA7E6C71F /* Pods-PicBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.debug.xcconfig"; sourceTree = "<group>"; };
+		7D003DF01CC4001F0028E7BA /* about-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-icon.png"; sourceTree = "<group>"; };
+		7D003DF11CC4001F0028E7BA /* about-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-icon@2x.png"; sourceTree = "<group>"; };
+		7D003DF21CC4001F0028E7BA /* about-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-icon@3x.png"; sourceTree = "<group>"; };
+		7D003DF31CC4001F0028E7BA /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
+		7D003DF41CC4001F0028E7BA /* settings-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon@2x.png"; sourceTree = "<group>"; };
+		7D003DF51CC4001F0028E7BA /* settings-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon@3x.png"; sourceTree = "<group>"; };
 		7D32033B1CBFFEF900B3E391 /* PicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D32033F1CBFFEF900B3E391 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D3203411CBFFEF900B3E391 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -264,6 +276,12 @@
 				7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */,
 				7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */,
 				7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */,
+				7D003DF01CC4001F0028E7BA /* about-icon.png */,
+				7D003DF11CC4001F0028E7BA /* about-icon@2x.png */,
+				7D003DF21CC4001F0028E7BA /* about-icon@3x.png */,
+				7D003DF31CC4001F0028E7BA /* settings-icon.png */,
+				7D003DF41CC4001F0028E7BA /* settings-icon@2x.png */,
+				7D003DF51CC4001F0028E7BA /* settings-icon@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -406,10 +424,16 @@
 			files = (
 				7D3B8CA61CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png in Resources */,
 				7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */,
+				7D003DFA1CC4001F0028E7BA /* settings-icon@2x.png in Resources */,
+				7D003DF61CC4001F0028E7BA /* about-icon.png in Resources */,
+				7D003DF91CC4001F0028E7BA /* settings-icon.png in Resources */,
+				7D003DFB1CC4001F0028E7BA /* settings-icon@3x.png in Resources */,
 				7D32034E1CBFFEF900B3E391 /* LaunchScreen.storyboard in Resources */,
+				7D003DF71CC4001F0028E7BA /* about-icon@2x.png in Resources */,
 				7D32034B1CBFFEF900B3E391 /* Assets.xcassets in Resources */,
 				7D3B8C8C1CC2C98E007EA5C5 /* gallery_icon.png in Resources */,
 				7D3B8C7F1CC24A31007EA5C5 /* BottomRefreshControl.xib in Resources */,
+				7D003DF81CC4001F0028E7BA /* about-icon@3x.png in Resources */,
 				7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */,
 				7D3203491CBFFEF900B3E391 /* Main.storyboard in Resources */,
 				7D3B8CA51CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png in Resources */,

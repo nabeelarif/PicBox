@@ -27,19 +27,23 @@ typedef void (^PicBoxProgressUpdateBlock)(CGFloat progress);
 @property (nonatomic, strong) NSURL *photoURL;
 @property (nonatomic, strong) PicBoxProgressUpdateBlock progressUpdateBlock;
 @property (nonatomic, strong) UIImage *placeholderImage;
+@property (nonatomic, strong) id<IMGObjectProtocol> imgObject;
 
 // Class
 + (PicBoxImage *)photoWithImage:(UIImage *)image;
 + (PicBoxImage *)photoWithFilePath:(NSString *)path;
 + (PicBoxImage *)photoWithURL:(NSURL *)url;
++ (PicBoxImage *)photoWithIMGObject:(id<IMGObjectProtocol>)obj;
 
 + (NSArray *)photosWithImages:(NSArray *)imagesArray;
 + (NSArray *)photosWithFilePaths:(NSArray *)pathsArray;
 + (NSArray *)photosWithURLs:(NSArray *)urlsArray;
++ (NSArray *)photosWithIMGObjects:(NSArray<IMGObjectProtocol> *)objs;
 
 // Init
-- (id)initWithImage:(UIImage *)image;
-- (id)initWithFilePath:(NSString *)path;
-- (id)initWithURL:(NSURL *)url;
+- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithFilePath:(NSString *)path;
+- (instancetype)initWithURL:(NSURL *)url;
+- (instancetype)initWithIMGObject:(id<IMGObjectProtocol>)obj;
 
 @end

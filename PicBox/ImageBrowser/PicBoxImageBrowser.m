@@ -12,11 +12,6 @@
 
 #import "pop/POP.h"
 
-#ifndef PicBoxImageBrowserLocalizedStrings
-#define PicBoxImageBrowserLocalizedStrings(key) \
-NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBundle bundleForClass: [PicBoxImageBrowser class]] pathForResource:@"PicBoxPBLocalizations" ofType:@"bundle"]], nil)
-#endif
-
 // Private
 @interface PicBoxImageBrowser () {
     // Data
@@ -597,7 +592,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     
     if(!_doneButtonImage) {
         [_doneButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateNormal|UIControlStateHighlighted];
-        [_doneButton setTitle:PicBoxImageBrowserLocalizedStrings(@"Done") forState:UIControlStateNormal];
+        [_doneButton setTitle:NSLocalizedString(@"Done",nil) forState:UIControlStateNormal];
         [_doneButton.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
         [_doneButton setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.5]];
         _doneButton.layer.cornerRadius = 3.0f;
@@ -610,16 +605,16 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     }
     
     UIImage *leftButtonImage = (_leftArrowImage == nil) ?
-    [UIImage imageNamed:@"PicBoxImageBrowser.bundle/images/PicBoxImageBrowser_arrowLeft.png"]          : _leftArrowImage;
+    [UIImage imageNamed:@"PicBoxImageBrowser_arrowLeft.png"]          : _leftArrowImage;
     
     UIImage *rightButtonImage = (_rightArrowImage == nil) ?
-    [UIImage imageNamed:@"PicBoxImageBrowser.bundle/images/PicBoxImageBrowser_arrowRight.png"]         : _rightArrowImage;
+    [UIImage imageNamed:@"PicBoxImageBrowser_arrowRight.png"]         : _rightArrowImage;
     
     UIImage *leftButtonSelectedImage = (_leftArrowSelectedImage == nil) ?
-    [UIImage imageNamed:@"PicBoxImageBrowser.bundle/images/PicBoxImageBrowser_arrowLeftSelected.png"]  : _leftArrowSelectedImage;
+    [UIImage imageNamed:@"PicBoxImageBrowser_arrowLeftSelected.png"]  : _leftArrowSelectedImage;
     
     UIImage *rightButtonSelectedImage = (_rightArrowSelectedImage == nil) ?
-    [UIImage imageNamed:@"PicBoxImageBrowser.bundle/images/PicBoxImageBrowser_arrowRightSelected.png"] : _rightArrowSelectedImage;
+    [UIImage imageNamed:@"PicBoxImageBrowser_arrowRightSelected.png"] : _rightArrowSelectedImage;
     
     // Arrows
     _previousButton = [[UIBarButtonItem alloc] initWithCustomView:[self customToolbarButtonImage:leftButtonImage
@@ -1145,7 +1140,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
 - (void)updateToolbar {
     // Counter
     if ([self numberOfPhotos] > 1) {
-        _counterLabel.text = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), PicBoxImageBrowserLocalizedStrings(@"of"), (unsigned long)[self numberOfPhotos]];
+        _counterLabel.text = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"of",nil), (unsigned long)[self numberOfPhotos]];
     } else {
         _counterLabel.text = nil;
     }
@@ -1308,7 +1303,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
                 [self.actionsSheet addButtonWithTitle:action];
             }
             
-            self.actionsSheet.cancelButtonIndex = [self.actionsSheet addButtonWithTitle:PicBoxImageBrowserLocalizedStrings(@"Cancel")];
+            self.actionsSheet.cancelButtonIndex = [self.actionsSheet addButtonWithTitle:NSLocalizedString(@"Cancel",nil)];
             self.actionsSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
             
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {

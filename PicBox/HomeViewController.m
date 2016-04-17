@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIColor+Theme.h"
 #import "PicBoxImage.h"
+#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 
 @interface ImageCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -23,14 +24,16 @@
 @end
 
 @interface HomeViewController () <UICollectionViewDelegateFlowLayout>
-@property (nonatomic,strong) NSMutableArray<IMGGalleryObjectProtocol> *arrayImages;
+@property (nonatomic,strong) NSMutableArray<PicBoxImage*> *arrayImages;
+@property (nonatomic) BOOL isRequestInProgress;
+@property (nonatomic) NSInteger pageNumber;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    self.arrayImages = [[NSMutableArray<IMGGalleryObjectProtocol> alloc] init];
-    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.arrayImages = [[NSMutableArray<PicBoxImage*> alloc] init];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     if (self.currentAlbum) {
         [self loadDataForAlbum:self.currentAlbum];
@@ -39,6 +42,10 @@
     }else{
         [self reload];
     }
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    refreshControl.triggerVerticalOffset = 100.;
+    [refreshControl addTarget:self action:@selector(loadMoreData) forControlEvents:UIControlEventValueChanged];
+    self.collectionView.bottomRefreshControl = refreshControl;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -56,7 +63,8 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ImageCell *cell = (ImageCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    id<IMGGalleryObjectProtocol> object = [self.arrayImages objectAtIndex:indexPath.row];
+
+    id<IMGObjectProtocol> object = [self.arrayImages objectAtIndex:indexPath.row].imgObject;
     IMGImage * cover = [object coverImage];
     NSURL * coverURL = [cover URLWithSize:IMGMediumThumbnailSize];
     
@@ -92,14 +100,14 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<IMGGalleryObjectProtocol> object = [self.arrayImages objectAtIndex:indexPath.row];
+    PicBoxImage *pbImage = [self.arrayImages objectAtIndex:indexPath.row];
+    id<IMGObjectProtocol> object = pbImage.imgObject;
     
     ImageCell *cell = [self imageCellAtIndexPath:indexPath];
     if ([object isAlbum]) {
         [self launchGalleryForAlbum:(IMGAlbum*)object];
-        [self launchImageBrowserForImage:[object coverImage] sender:cell];
     }else{
-        [self launchImageBrowserForImage:(IMGImage *)object sender:cell];
+        [self launchImageBrowserForImageAtIndex:indexPath sender:cell];
     }
 }
 - (ImageCell*)imageCellAtIndexPath:(NSIndexPath *)indexPath
@@ -133,18 +141,39 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     return CGSizeZero;
 }
+-(void)loadMoreData{
+    
+    if (self.currentAlbum) {
+        [self loadDataForAlbum:self.currentAlbum];
+    }else{
+        [self reload];
+    }
+}
 -(void)reload{
     
-    [IMGGalleryRequest hotGalleryPage:0 withViralSort:YES success:^(NSArray *objects) {
-        [self.arrayImages addObjectsFromArray:objects];
+    if (_isRequestInProgress) {
+        return;
+    }
+    _isRequestInProgress =YES;
+    [IMGGalleryRequest hotGalleryPage:_pageNumber withViralSort:YES success:^(NSArray *objects) {
+        [self.arrayImages addObjectsFromArray:[PicBoxImage photosWithIMGObjects:(NSArray<IMGObjectProtocol> *)objects]];
+        _isRequestInProgress = NO;
+        _pageNumber++;
+        [self.collectionView.bottomRefreshControl endRefreshing];
         [self.collectionView reloadData];
         
     } failure:^(NSError *error) {
+        [self.collectionView.bottomRefreshControl endRefreshing];
+        _isRequestInProgress = NO;
         
         NSLog(@"gallery request failed - %@" ,error.localizedDescription);
     }];
 }
 -(void)loadDataForAlbum:(IMGAlbum*)album{
+    if (_isRequestInProgress) {
+        return;
+    }
+    _isRequestInProgress =YES;
     [[IMGSession sharedInstance] GET:[NSString stringWithFormat:@"%@/album/%@/images",IMGAPIVersion,album.albumID] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray * jsonArray = responseObject;
@@ -156,10 +185,15 @@
                 if(!JSONError && image)
                     [images addObject:image];
         }
-        [self.arrayImages addObjectsFromArray:images];
+        [self.arrayImages addObjectsFromArray:[PicBoxImage photosWithIMGObjects:(NSArray<IMGObjectProtocol> *)images]];
+        [self.collectionView.bottomRefreshControl endRefreshing];
+        _isRequestInProgress = NO;
+        _pageNumber++;
         [self.collectionView reloadData];
         
     } failure:^(NSError *error) {
+        [self.collectionView.bottomRefreshControl endRefreshing];
+        _isRequestInProgress = NO;
         //
     }];
 }
@@ -170,49 +204,18 @@
     [self.navigationController pushViewController:home animated:YES];
 }
 
-- (void)launchImageBrowserForImage:(IMGImage*)image sender:(ImageCell* )sender
+- (void)launchImageBrowserForImageAtIndex:(NSIndexPath*)indexPath sender:(ImageCell* )sender
 {
-    
-    // Create an array to store PicBoxImage objects
-    NSMutableArray *photos = [NSMutableArray new];
-    
-    PicBoxImage *photo;
-    
-//    if(buttonSender.tag == 101)
-//    {
-//        photo = [PicBoxImage photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"photo1l" ofType:@"jpg"]];
-//        photo.caption = @"Grotto of the Madonna";
-//        [photos addObject:photo];
-//    }
-    
-    photo = [PicBoxImage photoWithURL:image.url];
-    photo.caption = @"York Floods";
-    [photos addObject:photo];
-    
-//    photo = [PicBoxImage photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"photo2l" ofType:@"jpg"]];
-//    photo.caption = @"The London Eye is a giant Ferris wheel situated on the banks of the River Thames, in London, England.";
-//    [photos addObject:photo];
-//    
-//    photo = [PicBoxImage photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"photo4l" ofType:@"jpg"]];
-//    photo.caption = @"Campervan";
-//    [photos addObject:photo];
-    
-//    if(buttonSender.tag == 102)
-//    {
-//        photo = [PicBoxImage photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"photo1l" ofType:@"jpg"]];
-//        photo.caption = @"Grotto of the Madonna";
-//        [photos addObject:photo];
-//    }
-    
     // Create and setup browser
-    PicBoxImageBrowser *browser = [[PicBoxImageBrowser alloc] initWithPhotos:photos animatedFromView:sender]; // using initWithPhotos:animatedFromView: method to use the zoom-in animation
+    PicBoxImageBrowser *browser = [[PicBoxImageBrowser alloc] initWithPhotos:self.arrayImages animatedFromView:sender];
+    
+    [browser setInitialPageIndex:indexPath.row];
     browser.delegate = self;
     browser.displayActionButton = NO;
     browser.displayArrowButton = YES;
     browser.displayCounterLabel = YES;
     browser.usePopAnimation = YES;
     browser.scaleImage = sender.imageView.image;
-//    if(buttonSender.tag == 102) browser.useWhiteBackgroundColor = YES;
     
     // Show
     [self presentViewController:browser animated:YES completion:nil];

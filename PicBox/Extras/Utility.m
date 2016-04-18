@@ -57,4 +57,16 @@
     return _buildDate;
 }
 
++(NSString*)stringLocalTimeFromDate:(NSDate*)date
+{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterMediumStyle;
+        //set date format
+    });
+    return [formatter stringFromDate:date];
+}
 @end

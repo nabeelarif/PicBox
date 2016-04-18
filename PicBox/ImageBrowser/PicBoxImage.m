@@ -8,6 +8,9 @@
 
 #import "PicBoxImage.h"
 #import "PicBoxImageBrowser.h"
+#import "Utility.h"
+#import <IMGGalleryImage.h>
+#import <IMGGalleryAlbum.h>
 
 // Private
 @interface PicBoxImage () {
@@ -142,23 +145,39 @@ caption = _caption;
 #pragma mark - Instance Methods
 -(NSString *)caption{
     if (_imgObject) {
-        IMGImage *image;
+        IMGGalleryImage *image;
+        NSMutableString *strCaption = [NSMutableString new];
         if ([_imgObject isAlbum]) {
-            image = [_imgObject coverImage];
-            IMGAlbum *album = (IMGAlbum *)_imgObject;
+//            IMGImage *cover = [_imgObject coverImage];
+            IMGGalleryAlbum *album = (IMGGalleryAlbum *)_imgObject;
+            [strCaption appendString:@"-- ALBUM COVER --\n"];
             if (album.title) {
-                return album.title;
+                [strCaption appendFormat:@"[%@]\n",album.title];
             }else if (album.albumDescription){
-                return album.albumDescription;
+                [strCaption appendFormat:@"%@\n",album.albumDescription];
             }
+            [strCaption appendFormat:@"Views: %ld\n",album.views];
+            [strCaption appendFormat:@"Votes: %ld\n",album.vote];
+            [strCaption appendFormat:@"Ups: %ld\n",album.ups];
+            [strCaption appendFormat:@"Downs: %ld\n",album.downs];
+            [strCaption appendFormat:@"Scores: %ld\n",album.score];
+            [strCaption appendFormat:@"Created: %@\n",[Utility stringLocalTimeFromDate:album.datetime]];
+            [strCaption appendFormat:@"Image Count: %ld\n",album.imagesCount];
         }else{
-            image = (IMGImage*)_imgObject;
+            image = (IMGGalleryImage*)_imgObject;
             if (image.title) {
-                return image.title;
+                [strCaption appendFormat:@"[%@]\n",image.title];
             }else if (image.imageDescription){
-                return image.imageDescription;
+                [strCaption appendFormat:@"%@\n",image.imageDescription];
             }
+            [strCaption appendFormat:@"Views: %ld\n",image.views];
+            [strCaption appendFormat:@"Votes: %ld\n",image.vote];
+            [strCaption appendFormat:@"Ups: %ld\n",image.ups];
+            [strCaption appendFormat:@"Downs: %ld\n",image.downs];
+            [strCaption appendFormat:@"Scores: %ld\n",image.score];
+            [strCaption appendFormat:@"Created: %@\n",[Utility stringLocalTimeFromDate:image.datetime]];
         }
+        return strCaption;
     }
     return _caption;
 }

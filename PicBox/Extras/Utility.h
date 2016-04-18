@@ -16,5 +16,6 @@
 + (NSString *) appBuildNumber;
 + (NSString *) versionBuild;
 + (NSString *) buildDate;
++ (NSString *) stringLocalTimeFromDate:(NSDate*)date;
 
 @end

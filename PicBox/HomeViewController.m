@@ -14,6 +14,7 @@
 #import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 #import "SettingsModel.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ImageCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -59,6 +60,7 @@
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSString *strSearch;
 @property (nonatomic, strong) NSString *currentLayout;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -393,7 +395,14 @@
     if (_strSearch) {
         path = [path stringByAppendingString:[NSString stringWithFormat:@"&q=%@",_strSearch]];
     }
-    
+    if (self.arrayImages.count==0) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.labelText = NSLocalizedString(@"Loading ...", nil);
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        _hud.color = [UIColor whiteColor];
+        _hud.labelColor = [UIColor blackColor];
+        _hud.detailsLabelColor = [UIColor blackColor];
+    }
     [[IMGSession sharedInstance] GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray * jsonArray = responseObject;
@@ -419,12 +428,24 @@
         _pageNumber++;
         [self.collectionView.bottomRefreshControl endRefreshing];
         [self.collectionView reloadData];
+        if (self.arrayImages.count>0) {
+            [_hud hide:YES];
+        }else{
+            _hud.mode = MBProgressHUDModeText;
+            _hud.labelText = nil;
+            _hud.detailsLabelText = NSLocalizedString(@"No data available.", nil);
+            [_hud hide:YES afterDelay:3.0];
+        }
         
     } failure:^(NSError *error) {
         [self.collectionView.bottomRefreshControl endRefreshing];
         _isRequestInProgress = NO;
         
         NSLog(@"gallery request failed - %@" ,error.localizedDescription);
+        _hud.mode = MBProgressHUDModeText;
+        _hud.labelText = nil;
+        _hud.detailsLabelText = NSLocalizedString(@"An error occurred, please try again later", nil);
+        [_hud hide:YES afterDelay:3.0];
     }];
 }
 -(void)loadDataForAlbum:(IMGAlbum*)album{
@@ -432,6 +453,14 @@
         return;
     }
     _isRequestInProgress =YES;
+    
+    if (self.arrayImages.count==0) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.labelText = NSLocalizedString(@"Loading ...", nil);
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        _hud.color = [UIColor whiteColor];
+        _hud.labelColor = [UIColor blackColor];
+    }
     [[IMGSession sharedInstance] GET:[NSString stringWithFormat:@"%@/album/%@/images",IMGAPIVersion,album.albumID] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray * jsonArray = responseObject;
@@ -449,10 +478,22 @@
         _pageNumber++;
         [self.collectionView reloadData];
         
+        if (self.arrayImages.count>0) {
+            [_hud hide:YES];
+        }else{
+            _hud.mode = MBProgressHUDModeText;
+            _hud.labelText = nil;
+            _hud.detailsLabelText = NSLocalizedString(@"No data available.", nil);
+            [_hud hide:YES afterDelay:3.0];
+        }
+        
     } failure:^(NSError *error) {
         [self.collectionView.bottomRefreshControl endRefreshing];
         _isRequestInProgress = NO;
-        //
+        _hud.mode = MBProgressHUDModeText;
+        _hud.labelText = nil;
+        _hud.detailsLabelText = NSLocalizedString(@"An error occurred, please try again later", nil);
+        [_hud hide:YES afterDelay:3.0];
     }];
 }
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const kNotificationSettingsUpdated;
+extern NSString *const kNotificationSettingsLayoutUpdated;
 extern NSString *const kImgurClientId;
 extern NSString *const kImgurClientSecret;
 extern NSString *const kImgurSectionHot;

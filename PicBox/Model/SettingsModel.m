@@ -26,7 +26,7 @@
             sharedManager.section = kImgurSectionHot;
             sharedManager.sort = kImgurSortViral;
             sharedManager.layout = kImgurLayoutGrid;
-            sharedManager.window = kImgurWindowDay;
+            sharedManager.window = kImgurWindowAll;
             sharedManager.showViral = @(YES);
         }
     });

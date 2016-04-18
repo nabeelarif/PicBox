@@ -126,6 +126,9 @@
             [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         }
     }else{
+        if (_segCtrSort.selectedSegmentIndex==3) {
+            _segCtrSort.selectedSegmentIndex = 0;
+        }
         if (_segCtrSort.numberOfSegments==4) {
             [_segCtrSort removeSegmentAtIndex:3 animated:NO];
         }
@@ -151,17 +154,13 @@
 
 - (IBAction)actionDone:(id)sender {
     BOOL hasChanges = NO;
+    BOOL hasLayoutChangesOnly = NO;
     if (NO == [[SettingsModel sharedInstance].section isEqualToString:[self sectionNameForIndex:_segCtrSection.selectedSegmentIndex]]) {
         [SettingsModel sharedInstance].section = [self sectionNameForIndex:_segCtrSection.selectedSegmentIndex];
         hasChanges = YES;
     }
     if (NO == [[SettingsModel sharedInstance].sort isEqualToString:[self sortNameForIndex:_segCtrSort.selectedSegmentIndex]]) {
         [SettingsModel sharedInstance].sort = [self sortNameForIndex:_segCtrSort.selectedSegmentIndex];
-        hasChanges = YES;
-    }
-    
-    if (NO == [[SettingsModel sharedInstance].layout isEqualToString:[self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex]]) {
-        [SettingsModel sharedInstance].layout = [self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex];
         hasChanges = YES;
     }
     
@@ -173,9 +172,20 @@
         [SettingsModel sharedInstance].showViral = @(_switchShowViral.on);
         hasChanges = YES;
     }
+    
+    if (NO == [[SettingsModel sharedInstance].layout isEqualToString:[self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex]]) {
+        [SettingsModel sharedInstance].layout = [self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex];
+        if (!hasChanges) {
+            hasLayoutChangesOnly = YES;
+        };
+    }
     if (hasChanges) {
         [[SettingsModel sharedInstance] saveCurrentState];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSettingsUpdated object:[SettingsModel sharedInstance]];
+    }
+    if (hasLayoutChangesOnly) {
+        [[SettingsModel sharedInstance] saveCurrentState];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSettingsLayoutUpdated object:[SettingsModel sharedInstance]];
     }
     [self performSegueWithIdentifier:@"unwindToHome" sender:self];
 }

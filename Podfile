@@ -8,4 +8,5 @@ target 'PicBox' do
     pod 'pop', '~>1.0.9'
     pod 'CCBottomRefreshControl', '~>0.5.1'
     pod 'CHTCollectionViewWaterfallLayout'
+    pod 'MBProgressHUD', '~> 0.9.2'
 end

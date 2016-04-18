@@ -7,4 +7,5 @@ target 'PicBox' do
     pod 'DACircularProgress', '~>2.3.1'
     pod 'pop', '~>1.0.9'
     pod 'CCBottomRefreshControl', '~>0.5.1'
+    pod 'CHTCollectionViewWaterfallLayout'
 end

@@ -7,6 +7,7 @@
 //
 
 #import "SettingsModel.h"
+#import "Constants.h"
 
 @implementation SettingsModel
 
@@ -21,9 +22,11 @@
         sharedManager = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
         if(!sharedManager)
         {
-            sharedManager.section = @"top";
-            sharedManager.sort = @"viral";
-            sharedManager.window = @"day";
+            sharedManager = [[SettingsModel alloc] init];
+            sharedManager.section = kImgurSectionHot;
+            sharedManager.sort = kImgurSortViral;
+            sharedManager.layout = kImgurLayoutGrid;
+            sharedManager.window = kImgurWindowDay;
             sharedManager.showViral = @(YES);
         }
     });

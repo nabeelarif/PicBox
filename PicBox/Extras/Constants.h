@@ -9,7 +9,22 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const kImgurClientId;
-extern NSString *const KImgurClientSecret;
+extern NSString *const kImgurClientSecret;
+extern NSString *const kImgurSectionHot;
+extern NSString *const kImgurSectionTop;
+extern NSString *const kImgurSectionUser;
+extern NSString *const kImgurSortViral;
+extern NSString *const kImgurSortTop;
+extern NSString *const kImgurSortTime;
+extern NSString *const kImgurSortRising;
+extern NSString *const kImgurLayoutList;
+extern NSString *const kImgurLayoutGrid;
+extern NSString *const kImgurLayoutStaggeredGrid;
+extern NSString *const kImgurWindowDay;
+extern NSString *const kImgurWindowWeek;
+extern NSString *const kImgurWindowMonth;
+extern NSString *const kImgurWindowYear;
+extern NSString *const kImgurWindowAll;
 
 
 #define PADDING                 10

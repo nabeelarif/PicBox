@@ -8,6 +8,7 @@
 
 #import "Constants.h"
 
+NSString *const kNotificationSettingsUpdated = @"kNotificationSettingsUpdated";
 NSString *const kImgurClientId = @"2bed8eb8383ebf1";
 NSString *const kImgurClientSecret = @"078e4b38140453c240772b077263c1ec04476dea";
 NSString *const kImgurSectionHot = @"hot";

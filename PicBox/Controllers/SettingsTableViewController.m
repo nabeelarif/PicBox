@@ -11,6 +11,9 @@
 #import "SettingsModel.h"
 
 @interface SettingsTableViewController ()
+
+@property (nonatomic) NSInteger numberOfRows;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segCtrSection;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segCtrSort;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segCtrLayout;
@@ -31,37 +34,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    _numberOfRows = 5;
     
     _segCtrSection.selectedSegmentIndex = [self indexForSectionName:[SettingsModel sharedInstance].section];
     _segCtrSort.selectedSegmentIndex = [self indexForSortName:[SettingsModel sharedInstance].sort];
     _segCtrLayout.selectedSegmentIndex = [self indexForLayoutName:[SettingsModel sharedInstance].layout];
     _segCtrWindow.selectedSegmentIndex = [self indexForWindowName:[SettingsModel sharedInstance].window];
+    [self actionSection:_segCtrSection];
     _switchShowViral.on = [SettingsModel sharedInstance].showViral.boolValue;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*#pragma mark - Table view data source
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}*/
+    return _numberOfRows;
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,6 +117,24 @@
 
 #pragma mark - IBActions
 - (IBAction)actionSection:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex==2) {
+        if (_segCtrSort.numberOfSegments==3) {
+            [_segCtrSort insertSegmentWithTitle:NSLocalizedString(@"Rising", nil) atIndex:3 animated:NO];
+        }
+        if (_numberOfRows == 4) {
+            _numberOfRows = 5;
+            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }else{
+        if (_segCtrSort.numberOfSegments==4) {
+            [_segCtrSort removeSegmentAtIndex:3 animated:NO];
+        }
+        
+        if (_numberOfRows == 5) {
+            _numberOfRows = 4;
+            [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }
 }
 
 - (IBAction)actionSort:(id)sender {
@@ -134,12 +150,33 @@
 }
 
 - (IBAction)actionDone:(id)sender {
-    [SettingsModel sharedInstance].section = [self sectionNameForIndex:_segCtrSection.selectedSegmentIndex];
-    [SettingsModel sharedInstance].sort = [self sortNameForIndex:_segCtrSort.selectedSegmentIndex];
-    [SettingsModel sharedInstance].layout = [self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex];
-    [SettingsModel sharedInstance].window = [self windowNameForIndex:_segCtrWindow.selectedSegmentIndex];
-    [SettingsModel sharedInstance].showViral = @(_switchShowViral.on);
-    [[SettingsModel sharedInstance] saveCurrentState];
+    BOOL hasChanges = NO;
+    if (NO == [[SettingsModel sharedInstance].section isEqualToString:[self sectionNameForIndex:_segCtrSection.selectedSegmentIndex]]) {
+        [SettingsModel sharedInstance].section = [self sectionNameForIndex:_segCtrSection.selectedSegmentIndex];
+        hasChanges = YES;
+    }
+    if (NO == [[SettingsModel sharedInstance].sort isEqualToString:[self sortNameForIndex:_segCtrSort.selectedSegmentIndex]]) {
+        [SettingsModel sharedInstance].sort = [self sortNameForIndex:_segCtrSort.selectedSegmentIndex];
+        hasChanges = YES;
+    }
+    
+    if (NO == [[SettingsModel sharedInstance].layout isEqualToString:[self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex]]) {
+        [SettingsModel sharedInstance].layout = [self layoutNameForIndex:_segCtrLayout.selectedSegmentIndex];
+        hasChanges = YES;
+    }
+    
+    if (NO == [[SettingsModel sharedInstance].window isEqualToString:[self windowNameForIndex:_segCtrWindow.selectedSegmentIndex]]) {
+        [SettingsModel sharedInstance].window = [self windowNameForIndex:_segCtrWindow.selectedSegmentIndex];
+        hasChanges = YES;
+    }
+    if ([SettingsModel sharedInstance].showViral.boolValue != _switchShowViral.on) {
+        [SettingsModel sharedInstance].showViral = @(_switchShowViral.on);
+        hasChanges = YES;
+    }
+    if (hasChanges) {
+        [[SettingsModel sharedInstance] saveCurrentState];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSettingsUpdated object:[SettingsModel sharedInstance]];
+    }
     [self performSegueWithIdentifier:@"unwindToHome" sender:self];
 }
 

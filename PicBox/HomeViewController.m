@@ -43,7 +43,7 @@
     [super viewDidLoad];
     if (self.currentAlbum) {
         [self loadDataForAlbum:self.currentAlbum];
-        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItems = nil;
         self.navigationItem.leftBarButtonItem = nil;
     }else{
         [self reload];
@@ -230,7 +230,7 @@
     
     [browser setInitialPageIndex:indexPath.row];
     browser.delegate = self;
-    browser.displayActionButton = NO;
+    browser.displayActionButton = YES;
     browser.displayArrowButton = YES;
     browser.displayCounterLabel = YES;
     browser.usePopAnimation = YES;

@@ -216,10 +216,8 @@
     id<IMGObjectProtocol> object = [self.arrayImages objectAtIndex:indexPath.row].imgObject;
     IMGImage * cover;
     if ([object isAlbum]) {
-        NSLog(@"isAlbum");
         cover = [object coverImage];
     }else{
-        NSLog(@"Not isAlbum");
         cover = (IMGImage*)object;
     }
     
@@ -387,7 +385,7 @@
     path = [path stringByAppendingPathComponent:[SettingsModel sharedInstance].sort];
     path = [path stringByAppendingPathComponent:[SettingsModel sharedInstance].window];
     
-    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld?page=%ld", (long)_pageNumber,_pageNumber]];
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%ld?page=%ld", (long)_pageNumber,(long)_pageNumber]];
     
     if(!_strSearch && [[SettingsModel sharedInstance].section isEqualToString:kImgurSectionUser]){
         path = [path stringByAppendingString:[NSString stringWithFormat:@"&showViral=%@",[SettingsModel sharedInstance].showViral.boolValue ? @"true" : @"false"]];

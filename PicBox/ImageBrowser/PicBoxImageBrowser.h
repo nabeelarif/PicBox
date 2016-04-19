@@ -15,6 +15,10 @@
 
 // Delgate
 @class PicBoxImageBrowser;
+
+/**
+ *  Deletegate to communicate the changes for picboxbrowser.
+ */
 @protocol PicBoxImageBrowserDelegate <NSObject>
 @optional
 - (void)photoBrowser:(PicBoxImageBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)index;
@@ -24,7 +28,11 @@
 - (PicBoxCaptionView *)photoBrowser:(PicBoxImageBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index;
 @end
 
-// PicBoxImageBrowser
+/**
+ *  The gallery to allow image to show in detail mode. It showcases
+ *  the image, you would be able to set different properties to zoom,
+ *  slide and perform actions of the image. 
+ */
 @interface PicBoxImageBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
 // Properties

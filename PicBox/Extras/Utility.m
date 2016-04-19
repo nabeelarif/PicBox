@@ -37,11 +37,8 @@
 + (NSString *) buildDate {
     NSString *_buildDate;
     
-    // Get build date and time, format to 'yyMMddHHmm'
-    //NSString *dateStr = [NSString stringWithFormat:@"%@ %@", [NSString stringWithUTF8String:__DATE__], [NSString stringWithUTF8String:__TIME__]];
     NSString * buildDate = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBuildDate"];
     
-    // Convert to date
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"LLL d yyyy HH:mm:ss z"];
     NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
@@ -56,7 +53,7 @@
     
     return _buildDate;
 }
-
+#pragma mark - Utility methods
 +(NSString*)stringLocalTimeFromDate:(NSDate*)date
 {
     static NSDateFormatter *formatter = nil;
@@ -65,7 +62,6 @@
         formatter = [[NSDateFormatter alloc] init];
         formatter.dateStyle = NSDateFormatterMediumStyle;
         formatter.timeStyle = NSDateFormatterMediumStyle;
-        //set date format
     });
     return [formatter stringFromDate:date];
 }

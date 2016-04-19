@@ -156,13 +156,13 @@ caption = _caption;
             }else if (album.albumDescription){
                 [strCaption appendFormat:@"%@\n",album.albumDescription];
             }
-            [strCaption appendFormat:@"Views: %ld\n",album.views];
-            [strCaption appendFormat:@"Votes: %ld\n",album.vote];
-            [strCaption appendFormat:@"Ups: %ld\n",album.ups];
-            [strCaption appendFormat:@"Downs: %ld\n",album.downs];
-            [strCaption appendFormat:@"Scores: %ld\n",album.score];
+            [strCaption appendFormat:@"Views: %ld\n",(long)album.views];
+            [strCaption appendFormat:@"Votes: %ld\n",(long)album.vote];
+            [strCaption appendFormat:@"Ups: %ld\n",(long)album.ups];
+            [strCaption appendFormat:@"Downs: %ld\n",(long)album.downs];
+            [strCaption appendFormat:@"Scores: %ld\n",(long)album.score];
             [strCaption appendFormat:@"Created: %@\n",[Utility stringLocalTimeFromDate:album.datetime]];
-            [strCaption appendFormat:@"Image Count: %ld\n",album.imagesCount];
+            [strCaption appendFormat:@"Image Count: %ld\n",(long)album.imagesCount];
         }else{
             image = (IMGGalleryImage*)_imgObject;
             if (image.title) {
@@ -170,14 +170,14 @@ caption = _caption;
             }else if (image.imageDescription){
                 [strCaption appendFormat:@"%@\n",image.imageDescription];
             }
-            [strCaption appendFormat:@"Views: %ld\n",image.views];
-            [strCaption appendFormat:@"Votes: %ld\n",image.vote];
-            [strCaption appendFormat:@"Ups: %ld\n",image.ups];
-            [strCaption appendFormat:@"Downs: %ld\n",image.downs];
-            [strCaption appendFormat:@"Scores: %ld\n",image.score];
+            [strCaption appendFormat:@"Views: %ld\n",(long)image.views];
+            [strCaption appendFormat:@"Votes: %ld\n",(long)image.vote];
+            [strCaption appendFormat:@"Ups: %ld\n",(long)image.ups];
+            [strCaption appendFormat:@"Downs: %ld\n",(long)image.downs];
+            [strCaption appendFormat:@"Scores: %ld\n",(long)image.score];
             [strCaption appendFormat:@"Created: %@\n",[Utility stringLocalTimeFromDate:image.datetime]];
         }
-        return strCaption;
+        return [NSString stringWithString:strCaption];
     }
     return _caption;
 }

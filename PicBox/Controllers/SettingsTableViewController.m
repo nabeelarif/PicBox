@@ -210,6 +210,7 @@
             break;
             
         default:
+            newValue = kImgurSectionHot;
             break;
     }
     return newValue;
@@ -235,6 +236,7 @@
             break;
             
         default:
+            newValue = kImgurSortViral;
             break;
     }
     return newValue;
@@ -256,6 +258,7 @@
             break;
             
         default:
+            newValue = kImgurLayoutGrid;
             break;
     }
     return newValue;
@@ -285,6 +288,7 @@
             break;
             
         default:
+            newValue = kImgurWindowAll;
             break;
     }
     return newValue;
@@ -293,7 +297,7 @@
 #pragma mark - Index from Name
 
 -(NSInteger)indexForSectionName:(NSString*)name{
-    NSInteger index;
+    NSInteger index = 0;
     if ([name isEqualToString:kImgurSectionHot]) {
         index = 0;
     } else if ([name isEqualToString:kImgurSectionTop]) {
@@ -305,7 +309,7 @@
     
 }
 -(NSInteger)indexForSortName:(NSString*)name{
-    NSInteger index;
+    NSInteger index = 0;
     if ([name isEqualToString:kImgurSortViral]) {
         index = 0;
     } else if ([name isEqualToString:kImgurSortTop]) {
@@ -319,7 +323,7 @@
     
 }
 -(NSInteger)indexForLayoutName:(NSString*)name{
-    NSInteger index;
+    NSInteger index = 1;
     if ([name isEqualToString:kImgurLayoutList]) {
         index = 0;
     } else if ([name isEqualToString:kImgurLayoutGrid]) {
@@ -331,7 +335,7 @@
     
 }
 -(NSInteger)indexForWindowName:(NSString*)name{
-    NSInteger index;
+    NSInteger index = 4;
     if ([name isEqualToString:kImgurWindowDay]) {
         index = 0;
     } else if ([name isEqualToString:kImgurWindowWeek]) {

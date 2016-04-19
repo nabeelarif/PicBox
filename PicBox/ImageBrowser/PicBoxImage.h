@@ -12,24 +12,24 @@
 #import <IMGImage.h>
 #import <IMGAlbum.h>
 
-// This class models a photo/image and it's caption
-// If you want to handle photos, caching, decompression
-// yourself then you can simply ensure your custom data model
-// conforms to PicBoxPhotoProtocol
-
+/**
+ *  This class models a photo/image and it's caption
+ *  yourself then you can simply ensure your custom data model
+ *  conforms to PicBoxPhotoProtocol
+ */
 @interface PicBoxImage : NSObject <PicBoxImage>
 
 // Progress download block, used to update the circularView
 typedef void (^PicBoxProgressUpdateBlock)(CGFloat progress);
 
-// Properties
+#pragma mark - Properties
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSURL *photoURL;
 @property (nonatomic, strong) PicBoxProgressUpdateBlock progressUpdateBlock;
 @property (nonatomic, strong) UIImage *placeholderImage;
 @property (nonatomic, strong) id<IMGObjectProtocol> imgObject;
 
-// Class
+#pragma mark - Factory methods
 + (PicBoxImage *)photoWithImage:(UIImage *)image;
 + (PicBoxImage *)photoWithFilePath:(NSString *)path;
 + (PicBoxImage *)photoWithURL:(NSURL *)url;
@@ -40,7 +40,7 @@ typedef void (^PicBoxProgressUpdateBlock)(CGFloat progress);
 + (NSArray *)photosWithURLs:(NSArray *)urlsArray;
 + (NSArray *)photosWithIMGObjects:(NSArray<IMGObjectProtocol> *)objs;
 
-// Init
+#pragma mark - Initializers
 - (instancetype)initWithImage:(UIImage *)image;
 - (instancetype)initWithFilePath:(NSString *)path;
 - (instancetype)initWithURL:(NSURL *)url;

@@ -44,6 +44,7 @@
 		7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */; };
 		7D4070241CC671E300E55202 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070221CC671E300E55202 /* iTunesArtwork */; };
 		7D4070251CC671E300E55202 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070231CC671E300E55202 /* iTunesArtwork@2x */; };
+		7D4070271CC67A9F00E55202 /* LaunchScreen.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070261CC67A9F00E55202 /* LaunchScreen.JPG */; };
 		A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PicBoxImageBrowser_arrowRight@2x.png"; sourceTree = "<group>"; };
 		7D4070221CC671E300E55202 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		7D4070231CC671E300E55202 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		7D4070261CC67A9F00E55202 /* LaunchScreen.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.JPG; sourceTree = "<group>"; };
 		B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -286,6 +288,7 @@
 		7D3B8C8A1CC2C97E007EA5C5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7D4070261CC67A9F00E55202 /* LaunchScreen.JPG */,
 				7D3B8C8B1CC2C98E007EA5C5 /* gallery_icon.png */,
 				7D3B8CA11CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft.png */,
 				7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */,
@@ -443,6 +446,7 @@
 				7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */,
 				7D003DFA1CC4001F0028E7BA /* settings-icon@2x.png in Resources */,
 				7D003DF61CC4001F0028E7BA /* about-icon.png in Resources */,
+				7D4070271CC67A9F00E55202 /* LaunchScreen.JPG in Resources */,
 				7D4070251CC671E300E55202 /* iTunesArtwork@2x in Resources */,
 				7D003DF91CC4001F0028E7BA /* settings-icon.png in Resources */,
 				7D003DFB1CC4001F0028E7BA /* settings-icon@3x.png in Resources */,

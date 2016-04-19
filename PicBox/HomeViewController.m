@@ -83,6 +83,7 @@
     ((CHTCollectionViewWaterfallLayout*)self.collectionViewLayout).minimumColumnSpacing = 4;
     ((CHTCollectionViewWaterfallLayout*)self.collectionViewLayout).minimumInteritemSpacing = 4;
     _currentLayout = kImgurLayoutGrid;
+    [self setColumnCount];
     [self settingsLayoutUpdated:nil];
     [self addBottomRefreshControl:(self.currentAlbum==nil)];
     [self loadMoreData];

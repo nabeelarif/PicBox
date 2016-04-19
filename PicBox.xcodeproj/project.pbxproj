@@ -42,6 +42,8 @@
 		7D3B8CA61CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */; };
 		7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */; };
 		7D3B8CA81CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */; };
+		7D4070241CC671E300E55202 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070221CC671E300E55202 /* iTunesArtwork */; };
+		7D4070251CC671E300E55202 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070231CC671E300E55202 /* iTunesArtwork@2x */; };
 		A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		7D3B8CA21CC2F059007EA5C5 /* PicBoxImageBrowser_arrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PicBoxImageBrowser_arrowLeft@2x.png"; sourceTree = "<group>"; };
 		7D3B8CA31CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PicBoxImageBrowser_arrowRight.png; sourceTree = "<group>"; };
 		7D3B8CA41CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PicBoxImageBrowser_arrowRight@2x.png"; sourceTree = "<group>"; };
+		7D4070221CC671E300E55202 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		7D4070231CC671E300E55202 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CE41B01105616403A8F46D /* Pods-PicBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicBox/Pods-PicBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +211,8 @@
 				7D3203421CBFFEF900B3E391 /* AppDelegate.m */,
 				7D3203471CBFFEF900B3E391 /* Main.storyboard */,
 				7D32034A1CBFFEF900B3E391 /* Assets.xcassets */,
+				7D4070221CC671E300E55202 /* iTunesArtwork */,
+				7D4070231CC671E300E55202 /* iTunesArtwork@2x */,
 				7D32034C1CBFFEF900B3E391 /* LaunchScreen.storyboard */,
 				7D32034F1CBFFEF900B3E391 /* Info.plist */,
 				7D32033E1CBFFEF900B3E391 /* Supporting Files */,
@@ -437,8 +443,10 @@
 				7D3B8CA71CC2F059007EA5C5 /* PicBoxImageBrowser_arrowRight.png in Resources */,
 				7D003DFA1CC4001F0028E7BA /* settings-icon@2x.png in Resources */,
 				7D003DF61CC4001F0028E7BA /* about-icon.png in Resources */,
+				7D4070251CC671E300E55202 /* iTunesArtwork@2x in Resources */,
 				7D003DF91CC4001F0028E7BA /* settings-icon.png in Resources */,
 				7D003DFB1CC4001F0028E7BA /* settings-icon@3x.png in Resources */,
+				7D4070241CC671E300E55202 /* iTunesArtwork in Resources */,
 				7D32034E1CBFFEF900B3E391 /* LaunchScreen.storyboard in Resources */,
 				7D003DF71CC4001F0028E7BA /* about-icon@2x.png in Resources */,
 				7D32034B1CBFFEF900B3E391 /* Assets.xcassets in Resources */,
@@ -699,6 +707,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabeelarif.PicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -713,6 +722,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nabeelarif.PicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

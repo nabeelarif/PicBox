@@ -7,6 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Utility.h"
+#import "SettingsModel.h"
+#import "Constants.h"
 
 @interface PicBoxTests : XCTestCase
 
@@ -24,16 +27,35 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testUtilityAppVersion {
+    NSString *value = [Utility appVersion];
+    XCTAssertNotNil(value);
 }
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testUtilityBuildNumber {
+    NSString *value = [Utility appBuildNumber];
+    XCTAssertNotNil(value);
 }
-
+- (void)testUtilityVersionBuild {
+    NSString *value = [Utility versionBuild];
+    XCTAssertNotNil(value);
+}
+- (void)testUtilityBuildDate {
+    NSString *value = [Utility buildDate];
+    XCTAssertNotNil(value);
+}
+- (void)testUtilityStringToLocalTime {
+    NSString *value = [Utility stringLocalTimeFromDate:[NSDate date]];
+    XCTAssertNotNil(value);
+}
+- (void)testSettingsModel {
+    XCTAssertNotNil([SettingsModel sharedInstance]);
+    // Clear data to go back to defaults
+    NSLog(@"H - (%@) - %@",[SettingsModel sharedInstance].section,[SettingsModel sharedInstance].sort);
+    XCTAssertNotNil([SettingsModel sharedInstance].section);
+    XCTAssertNotNil([SettingsModel sharedInstance].sort);
+    XCTAssertNotNil([SettingsModel sharedInstance].window);
+    XCTAssertNotNil([SettingsModel sharedInstance].layout);
+    XCTAssertNotNil([SettingsModel sharedInstance].showViral);
+    
+}
 @end

@@ -45,6 +45,9 @@
 		7D4070241CC671E300E55202 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070221CC671E300E55202 /* iTunesArtwork */; };
 		7D4070251CC671E300E55202 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070231CC671E300E55202 /* iTunesArtwork@2x */; };
 		7D4070271CC67A9F00E55202 /* LaunchScreen.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7D4070261CC67A9F00E55202 /* LaunchScreen.JPG */; };
+		7D40704B1CC6A03600E55202 /* SettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D003E041CC4341F0028E7BA /* SettingsModel.m */; };
+		7D40704C1CC6A06200E55202 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3203731CC0182000B3E391 /* Constants.m */; };
+		7D40704D1CC6A07500E55202 /* UserDefaultBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D003E071CC434520028E7BA /* UserDefaultBaseModel.m */; };
 		A8F5DCBFB31B7712B52EEA22 /* libPods-PicBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B219EDCCDE916F64FBD1C600 /* libPods-PicBox.a */; };
 /* End PBXBuildFile section */
 
@@ -579,7 +582,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D40704B1CC6A03600E55202 /* SettingsModel.m in Sources */,
+				7D40704D1CC6A07500E55202 /* UserDefaultBaseModel.m in Sources */,
 				7D3203641CBFFEF900B3E391 /* PicBoxUITests.m in Sources */,
+				7D40704C1CC6A06200E55202 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

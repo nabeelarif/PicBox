@@ -402,7 +402,9 @@
         _hud.labelColor = [UIColor blackColor];
         _hud.detailsLabelColor = [UIColor blackColor];
     }
-    self.title = [NSString stringWithFormat:@"%@ - (%@)",[SettingsModel sharedInstance].section,[SettingsModel sharedInstance].sort];
+    if (!_strSearch) {
+        self.title = [NSString stringWithFormat:@"%@ - (%@)",[SettingsModel sharedInstance].section,[SettingsModel sharedInstance].sort];
+    }
     [[IMGSession sharedInstance] GET:path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray * jsonArray = responseObject;
